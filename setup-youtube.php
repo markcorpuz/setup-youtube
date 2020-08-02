@@ -104,9 +104,32 @@ function su_youtube_advanced_func( $atts ) {
 }*/
 
 /* --------------------------------------------------------------------------------------------
+ * | ENQUEUE SCRIPTS
+ * ----------------------------------------------------------------------------------------- */
+function setup_youtube_scripts() {
+    
+    // last arg is true - will be placed before </body>
+    wp_register_script( 'setup_youtube_scripts', plugins_url( 'js/asset.js', __FILE__ ), NULL, '1.0', TRUE );
+     
+    // Localize the script with new data
+    /*$translation_array = array(
+        'spk_master_one_ajax' => plugin_dir_url( __FILE__ ).'../ajax/spk_master_plug_v1_ajax.php',
+    );
+    wp_localize_script( 'spk_master_plugins_v1_js', 'spk_master_one', $translation_array );
+    */
+    // Enqueued script with localized data.
+    wp_enqueue_script( 'setup_youtube_scripts' );
+
+}
+
+/* --------------------------------------------------------------------------------------------
  * | EXECUTE
  * ----------------------------------------------------------------------------------------- */
 if ( !is_admin() ) {
+
+	// ENQUEUE SCRIPTS
+    //add_action( 'wp_enqueue_scripts', 'setup_youtube_scripts' );
+    add_action( 'wp_footer', 'setup_youtube_scripts', 5 );
 
     // SHORTCODE - YOUTUBE EMBEDS
     add_shortcode( 'su_youtube_advanced', 'su_youtube_advanced_func' );
