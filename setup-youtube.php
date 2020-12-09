@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Setup YouTube
  * Description: Handle the YouTube videos by displaying a thumbnail first to avoid loading the video on page load.
- * Version: 4.0
+ * Version: 4.0.1
  * Author: Jake Almeda
  * Author URI: http://smarterwebpackages.com/
  * Network: true
@@ -109,7 +109,7 @@ function su_youtube_advanced_func( $atts ) {
 function setup_youtube_scripts() {
     
     // last arg is true - will be placed before </body>
-    wp_register_script( 'setup_youtube_scripts', plugins_url( 'js/asset.js', __FILE__ ), NULL, '1.0', TRUE );
+    wp_register_script( 'setup_youtube_scripts', plugins_url( 'js/asset-2-min.js', __FILE__ ), NULL, '1.0', TRUE );
      
     // Localize the script with new data
     /*$translation_array = array(
@@ -128,7 +128,6 @@ function setup_youtube_scripts() {
 if ( !is_admin() ) {
 
 	// ENQUEUE SCRIPTS
-    //add_action( 'wp_enqueue_scripts', 'setup_youtube_scripts' );
     add_action( 'wp_footer', 'setup_youtube_scripts', 5 );
 
     // SHORTCODE - YOUTUBE EMBEDS
