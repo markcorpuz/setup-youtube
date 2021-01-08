@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: Setup YouTube
+ * Plugin Name: URC YouTube
  * Description: Handle the YouTube videos by displaying a thumbnail first to avoid loading the video on page load.
  * Version: 4.0.1
  * Author: Jake Almeda
